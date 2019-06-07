@@ -7,12 +7,14 @@ import com.yunliaoim.firechat.util.LoginHelper;
 import org.greenrobot.eventbus.EventBus;
 import org.jivesoftware.smack.chat2.Chat;
 import org.jivesoftware.smack.chat2.IncomingChatMessageListener;
+import org.jivesoftware.smack.chat2.OutgoingChatMessageListener;
 import org.jivesoftware.smack.packet.Message;
 import org.jxmpp.jid.EntityBareJid;
 
-public class FCIncomingChatMessageListener implements IncomingChatMessageListener {
+public class FCOutgoingChatMessageListener implements OutgoingChatMessageListener {
+
     @Override
-    public void newIncomingMessage(EntityBareJid from, Message message, Chat chat) {
+    public void newOutgoingMessage(EntityBareJid to, Message message, Chat chat) {
         String sessionJid = message.getFrom().getLocalpartOrNull().toString();
         String userJid = LoginHelper.getUser().getUsername();
 //        String fromUser = message.getFrom().getResourceOrNull().toString();
@@ -22,8 +24,8 @@ public class FCIncomingChatMessageListener implements IncomingChatMessageListene
         chatMessage.setUserJid(userJid);
         chatMessage.setFromUser(sessionJid);
         chatMessage.setContent(message.getBody());
-        chatMessage.save();
+//        chatMessage.save();
 
-        EventBus.getDefault().post(chatMessage);
+//        EventBus.getDefault().post(chatMessage);
     }
 }

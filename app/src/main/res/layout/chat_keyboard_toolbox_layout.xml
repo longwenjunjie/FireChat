@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <!-- 语音输入切换按钮 -->
     <CheckBox
@@ -12,14 +12,14 @@
         android:layout_marginLeft="@dimen/dimen_5"
         android:background="@drawable/ic_keyboard_voice"
         android:layout_centerVertical="true"
-        android:button="@null"
-        android:visibility="gone"/>
+        android:button="@null"/>
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_toLeftOf="@+id/keyboard_emotion_button"
+        android:layout_toRightOf="@id/keyboard_voice_button"
         android:layout_marginLeft="@dimen/dimen_5">
 
         <!-- 文字输入框 -->

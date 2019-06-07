@@ -1,5 +1,6 @@
 package com.yunliaoim.firechat.smack;
 
+import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
 import java.util.HashMap;
@@ -13,6 +14,8 @@ public class SmackListenerManager {
      * 单聊消息监听管理器
      */
     private FCIncomingChatMessageListener mFCIncomingChatMessageListener;
+    private FCOutgoingChatMessageListener mFCOutgoingChatMessageListener;
+
     /**
      * 群聊邀请监听
      */
@@ -28,6 +31,7 @@ public class SmackListenerManager {
 
     private SmackListenerManager() {
         mFCIncomingChatMessageListener = new FCIncomingChatMessageListener();
+        mFCOutgoingChatMessageListener = new FCOutgoingChatMessageListener();
         mInvitationListener = new MultiChatInvitationListener();
         mMultiChatMessageListener = new MultiChatMessageListener();
     }
@@ -45,6 +49,9 @@ public class SmackListenerManager {
     }
 
     public static void addGlobalListener() {
+        //不设置FromMode OutgoingChatMessageListener会监听不到
+        SmackManager.getInstance().getConnection().setFromMode(XMPPConnection.FromMode.USER);
+
         addMessageListener();
         addInvitationListener();
     }
@@ -54,6 +61,7 @@ public class SmackListenerManager {
      */
     static void addMessageListener() {
         SmackManager.getInstance().getChatManager().addIncomingListener(getInstance().mFCIncomingChatMessageListener);
+        SmackManager.getInstance().getChatManager().addOutgoingListener(getInstance().mFCOutgoingChatMessageListener);
     }
 
     /**
@@ -79,6 +87,7 @@ public class SmackListenerManager {
 
     public void destroy() {
         SmackManager.getInstance().getChatManager().removeIncomingListener(mFCIncomingChatMessageListener);
+        SmackManager.getInstance().getChatManager().removeOutgoingListener(mFCOutgoingChatMessageListener);
         SmackManager.getInstance().getMultiUserChatManager().removeInvitationListener(mInvitationListener);
 
         for(MultiUserChat multiUserChat : mMultiUserChatHashMap.values()) {
@@ -86,6 +95,7 @@ public class SmackListenerManager {
         }
 
         mFCIncomingChatMessageListener = null;
+        mFCOutgoingChatMessageListener = null;
         mInvitationListener = null;
         mMultiChatMessageListener = null;
         mMultiUserChatHashMap.clear();

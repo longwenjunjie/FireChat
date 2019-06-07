@@ -1,0 +1,78 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">FireChat</string>
+
+    <string name="login_username" tools:ignore="ExtraTranslation">请输入用户名</string>
+    <string name="login_password">请输入密码</string>
+    <string name="login_register"><u>快速注册</u></string>
+    <string name="login_button_unlogin_text">登陆</string>
+    <string name="login_button_login_loading">正在登陆...</string>
+    <string name="login_error_user">请输入用户名</string>
+    <string name="login_error_password">请输入密码</string>
+
+    <string name="text_message">消息</string>
+    <string name="text_contact">联系人</string>
+    <string name="text_chatroom">聊天室</string>
+    <string name="text_add_contact">加好友</string>
+    <string name="text_user_search">用户搜索</string>
+    <string name="text_create_multi_chat">创建群聊</string>
+    <string name="text_create_multi_chat_finish">发起</string>
+    <string name="text_default_multi_chat_nickname">%s创建的群</string>
+    <string name="text_invite_to_multi_chat">%s邀请你入群</string>
+    <string name="text_create_multi_chat_failure">创建群聊失败</string>
+    <string name="text_function_none">暂未实现，敬请期待...</string>
+    <string name="text_multi_chat_exist">群聊已存在</string>
+
+    <string name="title_add_friend">添加好友</string>
+    <string name="title_user_search">搜索用户</string>
+    <string name="title_register">注册</string>
+    <string name="hint_input_username">*用户名</string>
+    <string name="hint_input_nickname">*昵称</string>
+    <string name="hint_input_password">*密码</string>
+    <string name="hint_input_repassword">*密码确认</string>
+    <string name="error_input_friend_username">请输入好友用户名</string>
+    <string name="error_input_friend_nickname">请输入好友昵称</string>
+    <string name="error_register_input_username">请输入用户名</string>
+    <string name="error_register_input_username_invalid">用户名为字母数字_组合，且长度为3~16</string>
+    <string name="error_register_input_nickname">请输入昵称</string>
+    <string name="error_register_input_password_invalid">密码必须为字母数字组合，且长度为6~18</string>
+    <string name="error_register_input_password_not_equal">两次密码不相同，请重新输入</string>
+    <string name="hint_register_success">注册成功</string>
+    <string name="hint_register_failure">注册失败</string>
+    <string name="hint_add_friend_success">好友添加成功</string>
+    <string name="hint_add_friend_failure">好友添加失败</string>
+    <string name="hint_input_usersearch">用户名|昵称|邮箱</string>
+
+    <string name="contact_multi_chat">群聊</string>
+    <string name="contact_grouping">分组</string>
+    <string name="contact_index_menu">☆</string>
+    <string name="chat_dialog_title">发起聊天</string>
+    <string name="chat_dialog_message">开始与%s聊天?</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="chat_send">发送</string>
+    <string name="keyboard_press_record_voice">按住  说话</string>
+    <string name="keyboard_more_image">图片</string>
+    <string name="keyboard_more_take_photo">拍照</string>
+    <string name="recording_voice_text">手指上滑，取消发送</string>
+    <string name="cancel_recording_voice_text">松开手指，取消发送</string>
+
+    <string name="nav_header_title">基于Smack实现的简单即时通讯App</string>
+    <string name="nav_share">分享应用</string>
+    <string name="nav_about">关于</string>
+
+    <string name="share_app_title">分享FireChat给朋友</string>
+    <string name="about_author">作者：杨江河</string>
+    <string name="about_blog">博客：<a href="http://www.yunliaoim.com">http://www.yunliaoim.com</a></string>
+    <string name="about_contact">QQ群：757949247(点此复制)</string>
+    <string name="about_project">项目地址：\n<a href="https://github.com/longwenjunjie/FireChat">https://github.com/longwenjunjie/FireChat</a></string>
+    <string name="about_project_desc">项目简介：\nFireChat是基于Smack，服务器openfire，可与Spark通信的简单App。是在项目https://github.com/huyongli/TigerIM上做了一些修改,目的是学习openfire+Smack。\n主要包括：\n1.用户登陆与注册\n2.添加好友\n3.单人点对点聊天\n4.多人群聊\n5.好友搜索\n\n喜欢的朋友到github上star一下</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="load_failed">加载失败，点击重试</string>
+    <string name="exit_app">再按一次退出程序</string>
+
+    <string name="net_error">网络错误~</string>
+</resources>

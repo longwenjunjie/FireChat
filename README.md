@@ -3,4 +3,4 @@
 
 在项目https://github.com/huyongli/TigerIM上做了一些修改,目的是学习openfire+Smack
 
-现在已有一些基本功能……
+现在已有一些基本功能

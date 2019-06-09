@@ -1,6 +1,7 @@
 package com.yunliaoim.firechat.smack;
 
 import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.filter.MessageTypeFilter;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 
 import java.util.HashMap;
@@ -16,14 +17,19 @@ public class SmackListenerManager {
     private FCIncomingChatMessageListener mFCIncomingChatMessageListener;
     private FCOutgoingChatMessageListener mFCOutgoingChatMessageListener;
 
+    //headline消息
+    private FCStanzaListener mFCStanzaListener;
+
     /**
      * 群聊邀请监听
      */
     private MultiChatInvitationListener mInvitationListener;
+
     /**
      * 群聊消息监听
      */
     private MultiChatMessageListener mMultiChatMessageListener;
+
     /**
      * 群聊信息
      */
@@ -32,6 +38,7 @@ public class SmackListenerManager {
     private SmackListenerManager() {
         mFCIncomingChatMessageListener = new FCIncomingChatMessageListener();
         mFCOutgoingChatMessageListener = new FCOutgoingChatMessageListener();
+        mFCStanzaListener = new FCStanzaListener();
         mInvitationListener = new MultiChatInvitationListener();
         mMultiChatMessageListener = new MultiChatMessageListener();
     }
@@ -62,6 +69,7 @@ public class SmackListenerManager {
     static void addMessageListener() {
         SmackManager.getInstance().getChatManager().addIncomingListener(getInstance().mFCIncomingChatMessageListener);
         SmackManager.getInstance().getChatManager().addOutgoingListener(getInstance().mFCOutgoingChatMessageListener);
+        SmackManager.getInstance().getConnection().addSyncStanzaListener(getInstance().mFCStanzaListener, MessageTypeFilter.HEADLINE);
     }
 
     /**
@@ -88,6 +96,7 @@ public class SmackListenerManager {
     public void destroy() {
         SmackManager.getInstance().getChatManager().removeIncomingListener(mFCIncomingChatMessageListener);
         SmackManager.getInstance().getChatManager().removeOutgoingListener(mFCOutgoingChatMessageListener);
+        SmackManager.getInstance().getConnection().removeAsyncStanzaListener(mFCStanzaListener);
         SmackManager.getInstance().getMultiUserChatManager().removeInvitationListener(mInvitationListener);
 
         for(MultiUserChat multiUserChat : mMultiUserChatHashMap.values()) {
@@ -96,6 +105,7 @@ public class SmackListenerManager {
 
         mFCIncomingChatMessageListener = null;
         mFCOutgoingChatMessageListener = null;
+        mFCStanzaListener = null;
         mInvitationListener = null;
         mMultiChatMessageListener = null;
         mMultiUserChatHashMap.clear();

@@ -6,6 +6,7 @@ import com.yunliaoim.firechat.constant.Constant;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,9 @@ import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.jid.parts.Localpart;
 import org.jxmpp.jid.parts.Resourcepart;
 import org.jxmpp.stringprep.XmppStringprepException;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 public class SmackManager {
     private static final String TAG = "SmackManager";
@@ -95,6 +99,14 @@ public class SmackManager {
     private XMPPTCPConnection connect() {
 
         try {
+            InetAddress addr = InetAddress.getByName(SERVER_IP);
+            HostnameVerifier verifier = new HostnameVerifier() {
+                @Override
+                public boolean verify(String hostname, SSLSession session) {
+                    return false;
+                }
+            };
+
 //            SmackConfiguration.setDefaultReplyTimeout(10000);
             XMPPTCPConnectionConfiguration config = XMPPTCPConnectionConfiguration.builder()
                     //是否开启安全模式
@@ -104,6 +116,8 @@ public class SmackManager {
                     .setHost(SERVER_IP)//服务器IP地址
                     //服务器端口
                     .setPort(PORT)
+                    .setHostAddress(addr)
+                    .setHostnameVerifier(verifier)
                     //是否开启压缩
 //                    .setCompressionEnabled(false)
                     //开启调试模式

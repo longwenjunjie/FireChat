@@ -5,3 +5,6 @@
 上做了一些修改,目的是学习openfire+Smack
 
 现在只有一些基本功能
+
+1.登录
+![screenshot](./screenshot/1_login.jpg)

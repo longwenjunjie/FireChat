@@ -6,5 +6,20 @@
 
 现在只有一些基本功能
 
-1.登录
+1. 登录
 ![screenshot](./screenshot/1_login.jpg)
+
+2. 注册
+![screenshot](./screenshot/2_register.jpg)
+
+3. 会话列表
+![screenshot](./screenshot/3_session.jpg)
+
+4. 联系人
+![screenshot](./screenshot/4_contact.jpg)
+
+5. 聊天室
+![screenshot](./screenshot/5_chatroom.jpg)
+
+6. 聊天
+![screenshot](./screenshot/6_chat.jpg)

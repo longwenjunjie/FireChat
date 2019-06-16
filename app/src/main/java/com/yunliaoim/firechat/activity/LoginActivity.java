@@ -9,6 +9,8 @@ import com.yunliaoim.firechat.bean.User;
 import com.yunliaoim.firechat.smack.SmackManager;
 import com.yunliaoim.firechat.ui.ClearEditText;
 import com.yunliaoim.firechat.util.LoginHelper;
+import com.yunliaoim.firechat.util.ServerConfig;
+import com.yunliaoim.firechat.util.VerifyUtil;
 import com.yunliaoim.firechat.utils.util.UIUtil;
 import com.yunliaoim.firechat.utils.util.ValueUtil;
 import io.reactivex.Observable;
@@ -62,6 +64,8 @@ public class LoginActivity extends IMBaseActivity {
 
         initViews();
         initUserInfo();
+
+        startServerConfig();
     }
 
     private void initViews() {
@@ -92,6 +96,12 @@ public class LoginActivity extends IMBaseActivity {
             mEditTextPwd.setText(user.getPassword());
         }
         mCbRememberPassword.setChecked(isRemember);
+    }
+
+    private void startServerConfig() {
+        if (VerifyUtil.checkEmpty(ServerConfig.getIP()) || ServerConfig.getPort() == 0 || VerifyUtil.checkEmpty(ServerConfig.getDomain())) {
+            ServerSettingActivity.start(LoginActivity.this);
+        }
     }
 
     /**
@@ -151,4 +161,10 @@ public class LoginActivity extends IMBaseActivity {
     public void onRegisterClick(View v) {
         this.startActivity(new Intent(this, RegisterActivity.class));
     }
+
+    @OnClick(R.id.btn_server_setting)
+    public void btnServerSettingClick(View v) {
+        ServerSettingActivity.start(LoginActivity.this);
+    }
+
 }

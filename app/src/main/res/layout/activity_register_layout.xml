@@ -81,7 +81,7 @@
                 android:background="@drawable/main_button_bg"
                 android:textSize="@dimen/sp_16"
                 android:textColor="@color/white"
-                android:text="注册" />
+                android:text="@string/btn_register_title" />
 
         </LinearLayout>
 
@@ -94,7 +94,7 @@
             android:background="@color/transparency"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_16"
-            android:text="取消" />
+            android:text="@string/cancel" />
     </RelativeLayout>
 
 </LinearLayout>

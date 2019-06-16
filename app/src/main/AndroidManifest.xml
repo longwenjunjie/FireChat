@@ -73,6 +73,10 @@
             android:name=".activity.WebPageActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".activity.ServerSettingActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

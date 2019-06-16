@@ -4,6 +4,7 @@ import com.yunliaoim.firechat.bean.User;
 import com.yunliaoim.firechat.constant.Constant;
 
 import com.orhanobut.logger.Logger;
+import com.yunliaoim.firechat.util.ServerConfig;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -51,15 +52,15 @@ public class SmackManager {
     /**
      * Xmpp服务器地址
      */
-    public static final String SERVER_IP = "154.8.237.227";
+//    public static final String SERVER_IP = "154.8.237.227";
     /**
      * Xmpp 服务器端口
      */
-    private static final int PORT = 5222;
+//    private static final int PORT = 5222;
     /**
      * 服务器名称
      */
-    public static final String SERVER_NAME = "yunliaoim.com";
+//    public static final String SERVER_NAME = "yunliaoim.com";
     /**
      *
      */
@@ -72,7 +73,6 @@ public class SmackManager {
     private XMPPTCPConnection mConnection;
 
     private SmackManager() {
-
         this.mConnection = connect();
     }
 
@@ -81,7 +81,6 @@ public class SmackManager {
      *
      */
     public static SmackManager getInstance() {
-
         if (sSmackManager == null) {
             synchronized (SmackManager.class) {
                 if (sSmackManager == null) {
@@ -97,9 +96,13 @@ public class SmackManager {
      *
      */
     private XMPPTCPConnection connect() {
-
         try {
-            InetAddress addr = InetAddress.getByName(SERVER_IP);
+            String serverIP = ServerConfig.getIP();
+            int serverPort = ServerConfig.getPort();
+            String serverDomain = ServerConfig.getDomain();
+
+
+            InetAddress addr = InetAddress.getByName(serverIP);
             HostnameVerifier verifier = new HostnameVerifier() {
                 @Override
                 public boolean verify(String hostname, SSLSession session) {
@@ -112,10 +115,10 @@ public class SmackManager {
                     //是否开启安全模式
                     .setSecurityMode(XMPPTCPConnectionConfiguration.SecurityMode.disabled)
                     //服务器名称
-                    .setXmppDomain(SERVER_NAME)
-                    .setHost(SERVER_IP)//服务器IP地址
+                    .setXmppDomain(serverDomain)
+                    .setHost(serverIP)//服务器IP地址
                     //服务器端口
-                    .setPort(PORT)
+                    .setPort(serverPort)
                     .setHostAddress(addr)
                     .setHostnameVerifier(verifier)
                     //是否开启压缩
@@ -725,8 +728,6 @@ public class SmackManager {
     /**
      * 获取服务器上的所有群聊房间
      *
-     * @return
-     * @throws Exception
      */
     public List<HostedRoom> getHostedRooms() throws Exception {
 

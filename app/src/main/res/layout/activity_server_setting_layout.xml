@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:background="@drawable/main_bg"
+              android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <include layout="@layout/toolbar_layout"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_10"
+        android:orientation="vertical" >
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_server_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputLayout_Style"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextInputLayout_Error_Msg_Style">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/acet_server_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:hint="@string/hint_server_ip"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_server_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputLayout_Style"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextInputLayout_Error_Msg_Style">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/acet_server_port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="@dimen/sp_16"
+                android:hint="@string/hint_server_port"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_server_domain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextInputLayout_Style"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextInputLayout_Error_Msg_Style">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/acet_server_domain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:hint="@string/hint_server_domain"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_server_setting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_35"
+            android:background="@drawable/main_button_bg"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/white"
+            android:text="@string/btn_setting_title" />
+
+    </LinearLayout>
+
+</LinearLayout>

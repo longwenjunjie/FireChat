@@ -30,6 +30,7 @@
     <string name="hint_input_nickname">*昵称</string>
     <string name="hint_input_password">*密码</string>
     <string name="hint_input_repassword">*密码确认</string>
+    <string name="btn_register_title">注册</string>
     <string name="error_input_friend_username">请输入好友用户名</string>
     <string name="error_input_friend_nickname">请输入好友昵称</string>
     <string name="error_register_input_username">请输入用户名</string>
@@ -75,4 +76,13 @@
     <string name="exit_app">再按一次退出程序</string>
 
     <string name="net_error">网络错误~</string>
+
+    <string name="title_server_setting">服务器设置</string>
+    <string name="hint_server_ip">服务器IP</string>
+    <string name="hint_server_port">服务器端口</string>
+    <string name="hint_server_domain">服务器域</string>
+    <string name="btn_setting_title">设置</string>
+    <string name="error_server_ip">请输入正确的IP</string>
+    <string name="error_server_port">请输入正确的端口</string>
+    <string name="error_server_domain">请输入正确的域</string>
 </resources>
